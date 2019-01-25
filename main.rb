@@ -2,7 +2,7 @@ require 'curl'
 require 'nokogiri'
 require 'csv'
 
-category = ARGV[0]
+url = ARGV[0]
 out_file_path = ARGV[1]
 
 proxy_servers_list = [
@@ -13,8 +13,6 @@ proxy_servers_list = [
       "113.161.197.179:32688",
       "192.140.91.133:54108"
 ]
-
-url = "https://www.petsonic.com/#{category}/"
 
 proxy_server = proxy_servers_list[rand(proxy_servers_list.count)]
 http = Curl.get(url, {:x => proxy_server})
